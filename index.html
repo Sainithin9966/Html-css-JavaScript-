@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SocialBook - Connect with friends</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Login Page -->
+    <div id="loginPage" class="login-container">
+        <div class="login-content">
+            <div class="login-left">
+                <h1 class="logo">SocialBook</h1>
+                <p class="tagline">Connect with friends and the world around you on SocialBook.</p>
+            </div>
+            <div class="login-right">
+                <div class="login-form">
+                    <input type="email" placeholder="Email or phone number" id="loginEmail">
+                    <input type="password" placeholder="Password" id="loginPassword">
+                    <button class="login-btn" onclick="login()">Log In</button>
+                    <a href="#" class="forgot-password">Forgotten password?</a>
+                    <hr>
+                    <button class="create-account-btn" onclick="showSignup()">Create New Account</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Sign Up</h2>
+                <span class="close" onclick="closeSignup()">&times;</span>
+            </div>
+            <p class="signup-subtitle">It's quick and easy.</p>
+            <form class="signup-form">
+                <div class="name-row">
+                    <input type="text" placeholder="First name" required>
+                    <input type="text" placeholder="Last name" required>
+                </div>
+                <input type="email" placeholder="Mobile number or email" required>
+                <input type="password" placeholder="New password" required>
+                <div class="birthday-section">
+                    <label>Birthday</label>
+                    <div class="birthday-inputs">
+                        <select>
+                            <option>Month</option>
+                            <option>Jan</option>
+                            <option>Feb</option>
+                            <option>Mar</option>
+                        </select>
+                        <select>
+                            <option>Day</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                        </select>
+                        <select>
+                            <option>Year</option>
+                            <option>2024</option>
+                            <option>2023</option>
+                            <option>2022</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="gender-section">
+                    <label>Gender</label>
+                    <div class="gender-options">
+                        <label><input type="radio" name="gender" value="female"> Female</label>
+                        <label><input type="radio" name="gender" value="male"> Male</label>
+                        <label><input type="radio" name="gender" value="custom"> Custom</label>
+                    </div>
+                </div>
+                <button type="button" class="signup-btn" onclick="signup()">Sign Up</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="mainApp" class="main-app" style="display: none;">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <div class="logo-small">SocialBook</div>
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search SocialBook">
+                </div>
+            </div>
+            <div class="header-center">
+                <div class="nav-icons">
+                    <div class="nav-icon active">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="nav-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="nav-icon">
+                        <i class="fas fa-tv"></i>
+                    </div>
+                    <div class="nav-icon">
+                        <i class="fas fa-store"></i>
+                    </div>
+                    <div class="nav-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="header-icon">
+                    <i class="fas fa-plus"></i>
+                </div>
+                <div class="header-icon">
+                    <i class="fab fa-facebook-messenger"></i>
+                </div>
+                <div class="header-icon">
+                    <i class="fas fa-bell"></i>
+                </div>
+                <div class="profile-menu">
+                    <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=50&h=50&fit=crop" alt="Profile" class="profile-pic">
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <div class="sidebar-item">
+                    <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&fit=crop" alt="Profile">
+                    <span>John Doe</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-users"></i>
+                    <span>Friends</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-clock"></i>
+                    <span>Memories</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-bookmark"></i>
+                    <span>Saved</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-users"></i>
+                    <span>Groups</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-tv"></i>
+                    <span>Video</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-store"></i>
+                    <span>Marketplace</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="fas fa-gamepad"></i>
+                    <span>Gaming</span>
+                </div>
+            </div>
+
+            <!-- Feed -->
+            <div class="feed">
+                <!-- Create Post -->
+                <div class="create-post">
+                    <div class="create-post-top">
+                        <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&fit=crop" alt="Profile" class="profile-pic">
+                        <input type="text" placeholder="What's on your mind, John?" onclick="openCreatePost()">
+                    </div>
+                    <hr>
+                    <div class="create-post-bottom">
+                        <div class="post-option">
+                            <i class="fas fa-video" style="color: #f02849;"></i>
+                            <span>Live video</span>
+                        </div>
+                        <div class="post-option">
+                            <i class="fas fa-images" style="color: #45bd62;"></i>
+                            <span>Photo/video</span>
+                        </div>
+                        <div class="post-option">
+                            <i class="fas fa-smile" style="color: #f7b928;"></i>
+                            <span>Feeling/activity</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stories -->
+                <div class="stories">
+                    <div class="story create-story">
+                        <i class="fas fa-plus"></i>
+                        <span>Create Story</span>
+                    </div>
+                    <div class="story">
+                        <img src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=120&h=200&fit=crop" alt="Story">
+                        <div class="story-profile">
+                            <img src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&fit=crop" alt="Profile">
+                        </div>
+                        <span>Sarah</span>
+                    </div>
+                    <div class="story">
+                        <img src="https://images.pexels.com/photos/1040880/pexels-photo-1040880.jpeg?auto=compress&cs=tinysrgb&w=120&h=200&fit=crop" alt="Story">
+                        <div class="story-profile">
+                            <img src="https://images.pexels.com/photos/1040880/pexels-photo-1040880.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&fit=crop" alt="Profile">
+                        </div>
+                        <span>Mike</span>
+                    </div>
+                    <div class="story">
+                        <img src="https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=120&h=200&fit=crop" alt="Story">
+                        <div class="story-profile">
+                            <img src="https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&fit=crop" alt="Profile">
+                        </div>
+                        <span>Emma</span>
+                    </div>
+                </div>
+
+                <!-- Posts -->
+                <div class="post">
+                    <div class="post-header">
+                        <div class="post-user">
+                            <img src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&fit=crop" alt="Profile" class="profile-pic">
+                            <div class="post-info">
+                                <h4>Sarah Johnson</h4>
+                                <p>2 hours ago • <i class="fas fa-globe-americas"></i></p>
+                            </div>
+                        </div>
+                        <div class="post-options">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>Just finished an amazing hike in the mountains! The view was absolutely breathtaking. Nature never fails to inspire me. 🏔️✨</p>
+                        <img src="https://images.pexels.com/photos/1366919/pexels-photo-1366919.jpeg?auto=compress&cs=tinysrgb&w=500&h=300&fit=crop" alt="Post image">
+                    </div>
+                    <div class="post-stats">
+                        <div class="post-reactions">
+                            <div class="reaction-icons">
+                                <span class="reaction like">👍</span>
+                                <span class="reaction love">❤️</span>
+                                <span class="reaction wow">😮</span>
+                            </div>
+                            <span>124</span>
+                        </div>
+                        <div class="post-comments-shares">
+                            <span>23 comments</span>
+                            <span>5 shares</span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="post-actions">
+                        <div class="action-btn">
+                            <i class="fas fa-thumbs-up"></i>
+                            <span>Like</span>
+                        </div>
+                        <div class="action-btn">
+                            <i class="fas fa-comment"></i>
+                            <span>Comment</span>
+                        </div>
+                        <div class="action-btn">
+                            <i class="fas fa-share"></i>
+                            <span>Share</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="post">
+                    <div class="post-header">
+                        <div class="post-user">
+                            <img src="https://images.pexels.com/photos/1040880/pexels-photo-1040880.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&fit=crop" alt="Profile" class="profile-pic">
+                            <div class="post-info">
+                                <h4>Mike Chen</h4>
+                                <p>4 hours ago • <i class="fas fa-users"></i></p>
+                            </div>
+                        </div>
+                        <div class="post-options">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>Excited to share that I just launched my new photography portfolio! Check it out and let me know what you think. Your feedback means the world to me! 📸</p>
+                    </div>
+                    <div class="post-stats">
+                        <div class="post-reactions">
+                            <div class="reaction-icons">
+                                <span class="reaction like">👍</span>
+                                <span class="reaction love">❤️</span>
+                            </div>
+                            <span>89</span>
+                        </div>
+                        <div class="post-comments-shares">
+                            <span>15 comments</span>
+                            <span>8 shares</span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="post-actions">
+                        <div class="action-btn">
+                            <i class="fas fa-thumbs-up"></i>
+                            <span>Like</span>
+                        </div>
+                        <div class="action-btn">
+                            <i class="fas fa-comment"></i>
+                            <span>Comment</span>
+                        </div>
+                        <div class="action-btn">
+                            <i class="fas fa-share"></i>
+                            <span>Share</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Sidebar -->
+            <div class="right-sidebar">
+                <div class="contacts">
+                    <h3>Contacts</h3>
+                    <div class="contact">
+                        <img src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&fit=crop" alt="Contact">
+                        <span>Sarah Johnson</span>
+                        <div class="online-status"></div>
+                    </div>
+                    <div class="contact">
+                        <img src="https://images.pexels.com/photos/1040880/pexels-photo-1040880.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&fit=crop" alt="Contact">
+                        <span>Mike Chen</span>
+                        <div class="online-status"></div>
+                    </div>
+                    <div class="contact">
+                        <img src="https://images.pexels.com/photos/1036623/pexels-photo-1036623.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&fit=crop" alt="Contact">
+                        <span>Emma Wilson</span>
+                    </div>
+                    <div class="contact">
+                        <img src="https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=32&h=32&fit=crop" alt="Contact">
+                        <span>David Brown</span>
+                        <div class="online-status"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Post Modal -->
+    <div id="createPostModal" class="modal">
+        <div class="modal-content create-post-modal">
+            <div class="modal-header">
+                <h2>Create post</h2>
+                <span class="close" onclick="closeCreatePost()">&times;</span>
+            </div>
+            <div class="post-creator">
+                <img src="https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=40&h=40&fit=crop" alt="Profile" class="profile-pic">
+                <div>
+                    <h4>John Doe</h4>
+                    <select class="privacy-select">
+                        <option>🌍 Public</option>
+                        <option>👥 Friends</option>
+                        <option>🔒 Only me</option>
+                    </select>
+                </div>
+            </div>
+            <textarea placeholder="What's on your mind, John?" rows="4"></textarea>
+            <div class="post-options-grid">
+                <div class="post-option">
+                    <i class="fas fa-images" style="color: #45bd62;"></i>
+                    <span>Photo/video</span>
+                </div>
+                <div class="post-option">
+                    <i class="fas fa-user-tag" style="color: #1877f2;"></i>
+                    <span>Tag people</span>
+                </div>
+                <div class="post-option">
+                    <i class="fas fa-smile" style="color: #f7b928;"></i>
+                    <span>Feeling/activity</span>
+                </div>
+                <div class="post-option">
+                    <i class="fas fa-map-marker-alt" style="color: #f02849;"></i>
+                    <span>Check in</span>
+                </div>
+            </div>
+            <button class="post-btn">Post</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
